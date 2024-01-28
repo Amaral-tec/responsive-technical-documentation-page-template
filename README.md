@@ -1,0 +1,1 @@
+# responsive-technical-documentation-page-template
