@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>CSS Fundamentals</title>
+      <link rel="stylesheet" href="styles.css">
+   </head>
+   <body>
+      <header class="header-title">
+         <h1 id="title">CSS Fundamentals</h1>
+         <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg">
+      </header>
+      <nav id="navbar">
+         <header>Index</header>
+         <ol>
+            <li><a class="nav-link" href="#introduction">Introduction</a></li>
+            <li><a class="nav-link" href="#pseudo-elements">Pseudo-Elements</a></li>
+            <li><a class="nav-link" href="#box_model">Box Model</a></li>
+            <li><a class="nav-link" href="#clip_property">Clip Property</a></li>
+            <li><a class="nav-link" href="#flexbox">Flexbox</a></li>
+            <li><a class="nav-link" href="#gap_property">Gap Property</a></li>
+            <li><a class="nav-link" href="#letter_spacing">Letter Spacing</a></li>
+            <li><a class="nav-link" href="#text_transformation">Text Transformation</a></li>
+            <li><a class="nav-link" href="#object_fit">Object Fit</a></li>
+         </ol>
+      </nav>
+      <main id="main-doc">
+         <section class="main-section" id="introduction">
+            <header>Introduction</header>
+            <article>
+               <p>CSS stands for Cascading Style Sheets. It is a style sheet language used for describing the look and formatting of a document written in a markup language, such as HTML or XML. CSS allows web developers to control the visual presentation of web pages by specifying the style of elements on the page, such as fonts, colors, spacing, and layout.</p>
+               <p>CSS works by selecting HTML elements and applying styles to them. Styles can be defined directly within an HTML document using inline styles, but it is more common to use external CSS files. External CSS files can be linked to multiple HTML documents, providing a consistent style across an entire website.</p>
+               <p>The term "cascading" in CSS refers to the way styles are applied. Styles can be inherited from parent elements, and multiple style rules can be combined, with later rules taking precedence. This allows for a flexible and efficient way to manage the appearance of web pages.</p>
+               <p>CSS has evolved over the years, and the latest version as of my last knowledge update in January 2022 is CSS3, which introduces many new features and improvements over previous versions. It is an essential technology in web development for creating visually appealing and responsive websites.</p>
+            </article>
+         </section>
+         <section class="main-section" id="pseudo-elements">
+            <header>Pseudo-elements</header>
+            <p>Pseudo-elements in CSS are used to style specific parts of an element. They allow you to target and style certain portions of an element's content without adding additional HTML markup. Pseudo-elements are denoted by a double colon (::) followed by the name of the pseudo-element.</p>
+            <p>Here are some common pseudo-elements in CSS:</p>
+            <ol>
+               <li>
+                  <p><strong>::before</strong>: Adds content before the actual content of the selected element.</p>
+                  <p>To prevent unnecessary repetition, target the before pseudo-element.</p>
+                  <code>
+                  p::before { 
+                  <span class="line-up">--</span>content "Before "; 
+                  }
+                  </code>
+               </li>
+               <li>
+                  <p><strong>::after</strong>: Adds content after the actual content of the selected element.</p>
+                  <p>The ::after pseudo-element creates an element that is the last child of the selected element. You can use it to add an empty element after the last image. If you give it the same width as the images it will push the last image to the left when the gallery is in a two-column layout.</p>
+                  <code>
+                  p::after {
+                  <span class="line-up">--</span>content: " After";
+                  }
+                  </code>
+               </li>
+               <li>
+                  <p><strong>::first-line</strong>: Selects the first line of the text content of an element.</p>
+                  <code>
+                  p::first-line {
+                  <span class="line-up">--</span>font-weight: bold;
+                  }
+                  </code>
+               </li>
+               <li>
+                  <p><strong>::first-letter</strong>: Selects the first letter of the text content of an element.</p>
+                  <code>
+                  p::first-letter {
+                  <span class="line-up">--</span>font-size: 150%;
+                  }
+                  </code>
+               </li>
+               <li>
+                  <p><strong>::selection</strong>: Selects the portion of an element that is selected by a user.</p>
+                  <code>
+                  p::selection {
+                  <span class="line-up">--</span>background-color: yellow;
+                  <span class="line-up">--</span>color: black;
+                  }
+                  </code>
+               </li>
+            </ol>
+         </section>
+         <section class="main-section" id="box_model">
+            <header>Box Model</header>
+            <p>The CSS box model is a fundamental concept that describes the layout of elements on a webpage. It consists of several parts that define the space an element occupies and how it interacts with other elements. The box model is crucial for understanding how elements are sized, spaced, and positioned.</p>
+            <p>The main components of the box model are as follows:</p>
+            <ol>
+               <li>
+                  <p><strong>Content</strong>: This is the actual content of the box, such as text, images, or other media.</p>
+               </li>
+               <li>
+                  <p><strong>Padding</strong>: The padding is the space between the content and the inner edge of the box. It helps to create space within the element.</p>
+               </li>
+               <li>
+                  <p><strong>Border</strong>: The border is a line that surrounds the padding (if any) and the content. It's optional, and you can set properties like color, width, and style for the border.</p>
+               </li>
+               <li>
+                  <p><strong>Margin</strong>: The margin is the space between the border and the adjacent elements. It provides separation between the element and its surrounding elements.</p>
+                  <p>When you set the width and height of an element in CSS, you are defining the size of the content area. The total space occupied by the element, including padding, border, and margin, is calculated by adding these values.</p>
+                  <p>For example:</p>
+                  <code>
+                  div {
+                  <span class="line-up">--</span>width: 200px;
+                  <span class="line-up">--</span>height: 100px;
+                  <span class="line-up">--</span>padding: 20px;
+                  <span class="line-up">--</span>border: 2px solid black;
+                  <span class="line-up">--</span>margin: 10px;
+                  }
+                  </code>
+                  <p>In this example, the total width of the <strong>`div`</strong> element would be calculated as follows:</p>
+                  <code>
+                  Total width = width + 2 * padding + 2 * border + 2 * margin
+                  <span class="line-up">------------</span>= 200px + 2 * 20px + 2 * 2px + 2 * 10px
+                  <span class="line-up">------------</span>= 200px + 40px + 4px + 20px
+                  <span class="line-up">------------</span>= 264px
+                  </code>
+                  <p>Understanding the box model is crucial for creating well-designed and responsive layouts in CSS.</p>
+               </li>
+            </ol>
+         </section>
+         <section class="main-section" id="clip_property">
+            <header>Clip Property</header>
+            <p>The <strong>`clip-path`</strong> property in CSS is used to create clipping paths. Clipping paths are used to clip elements to a basic shape (rectangle, circle, polygon, etc.) or to an SVG path. This can be useful for creating complex shapes and effects on elements.</p>
+            <p>Here's a basic example of how clip-path can be used:</p>
+            <code>
+            .element {
+            <span class="line-up">--</span>clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+            }
+            </code>
+            <p>In this example, the clip-path property is applied to an element, and it clips the element to the shape defined by the polygon.</p>
+         </section>
+         <section class="main-section" id="flexbox">
+            <header>Flexbox</header>
+            <p>The Flexbox (Flexible Box) is a layout model in CSS that allows you to design a complex layout structure more efficiently and easily than traditional models. It is particularly useful for distributing space along a single axis or along both the main and cross axes of a container.</p>
+            <p>Here's a brief overview of key concepts in Flexbox:</p>
+            <ol>
+               <li>
+                  <p><strong>Container Properties:</strong></p>
+                  <ul>
+                     <li><strong>`display: flex;`</strong> or <strong>`display: inline-flex;`</strong>: Turns the container into a flex container.</li>
+                     <li><strong>`flex-direction`</strong>: Defines the main axis of the flex container (row, row-reverse, column, column-reverse).</li>
+                     <li><strong>`flex-wrap`</strong>: Specifies whether the flex items should wrap onto multiple lines if they don't fit in one line.</li>
+                  </ul>
+               </li>
+               <li>
+                  <p><strong>Item Properties:</strong></p>
+                  <ul>
+                     <li><strong>`order`</strong>: Specifies the order of a flex item within the flex container.</li>
+                     <li><strong>`flex-grow`</strong>: Defines the ability for a flex item to grow if necessary.</li>
+                     <li><strong>`flex-shrink`</strong>: Defines the ability for a flex item to shrink if necessary.</li>
+                     <li><strong>`flex-basis`</strong>: Specifies the initial size of a flex item.</li>
+                     <li><strong>`flex`</strong>: Shorthand for <strong>`flex-grow`</strong>, <strong>`flex-shrink`</strong>, and <strong>`flex-basis`</strong> combined.</li>
+                  </ul>
+               </li>
+               <li>
+                  <p><strong>Alignment Properties:</strong></p>
+                  <ul>
+                     <li><strong>`justify-content`</strong>: Aligns flex items along the main axis.</li>
+                     <li><strong>`align-items`</strong>: Aligns flex items along the cross axis.</li>
+                     <li><strong>`align-self`</strong>: Allows the default alignment to be overridden for individual flex items.</li>
+                  </ul>
+               </li>
+               <li>
+                  <p><strong>Responsive Design with Flexbox:</strong></p>
+                  <ul>
+                     <li>Flexbox is inherently responsive, and it adjusts to different screen sizes and orientations without the need for media queries in many cases.</li>
+                  </ul>
+                  <p>Example usage:</p>
+                  <code>
+                  .container {
+                  <span class="line-up">--</span>display: flex;
+                  <span class="line-up">--</span>justify-content: space-between;
+                  }
+                  .item {
+                  <span class="line-up">--</span>flex-grow: 1;
+                  <span class="line-up">--</span>flex-basis: 0;
+                  }
+                  </code>
+                  <p>In this example, the <strong>`.container`</strong> becomes a flex container with a row layout, and the items inside it are distributed with space between them. The <strong>`flex-grow: 1;`</strong> property allows the items to grow and occupy available space proportionally.</p>
+                  <p>Flexbox is widely supported in modern browsers, making it a powerful tool for creating flexible and responsive layouts.</p>
+               </li>
+            </ol>
+         </section>
+         <section class="main-section" id="gap_property">
+            <header>Gap Property</header>
+            <p>The <strong>`gap`</strong> property in CSS is used to set the gap between grid and flex items within a container. It is often used with the <strong>`grid-gap`</strong> and <strong>`row-gap` / `column-gap`</strong> properties for grid layouts, as well as with the <strong>`gap`</strong> property for flex containers.</p>
+            <p>Here's a brief explanation of how it works:</p>
+            <ol>
+               <li>
+                  <p><strong>For Grid Layouts (grid-gap, row-gap, column-gap):</strong></p>
+                  <ul>
+                     <li><strong>`grid-gap`</strong>: Sets the gap between rows and columns in a grid container.</li>
+                     <li><strong>`row-gap`</strong> and <strong>`column-gap`</strong> (or their older counterparts <strong>`grid-row-gap`</strong> and <strong>`grid-column-gap`</strong>): These properties are used to specifically set the gap for rows or columns.</li>
+                     <p>Example:</p>
+                     <code>
+                     .grid-container {
+                     <span class="line-up">--</span>display: grid;
+                     <span class="line-up">--</span>grid-template-columns: repeat(3, 1fr);
+                     <span class="line-up">--</span>gap: 20px; /* sets the gap between grid items */
+                     }
+                     </code>
+                  </ul>
+               </li>
+               <li>
+                  <p><strong>For Flexbox Layouts (gap):</strong></p>
+                  <ul>
+                     <li><strong>`gap`</strong>: Sets the gap between flex items in a flex container. It's a shorthand property for both <strong>`row-gap`</strong> and <strong>`column-gap`</strong>  in a flex container.</li>
+                     <p>Example:</p>
+                     <code>
+                     .flex-container {
+                     <span class="line-up">--</span>display: flex;
+                     <span class="line-up">--</span>gap: 10px; /* sets the gap between flex items */
+                     }
+                     </code>
+                  </ul>
+               </li>
+            </ol>
+            <p>The <strong>`gap`</strong> property simplifies the process of setting the spacing between items, and it's a convenient way to manage the layout of your elements. Note that the <strong>`gap`</strong> property is supported in modern browsers, but older browsers might not support it. In those cases, you may need to use the separate <strong>`row-gap`</strong> and <strong>`column-gap`</strong> properties for grid layouts or rely on other layout techniques.</p>
+         </section>
+         <section class="main-section" id="letter_spacing">
+            <header>Letter Spacing</header>
+            <p>The <strong>`letter-spacing`</strong> property in CSS is used to control the spacing between characters in a text. It allows you to increase or decrease the space between letters within a block of text. This property is particularly useful for adjusting the visual appearance of text for design purposes.</p>
+            <p>Here's a simple example:</p>
+            <code>
+            .p {
+            <span class="line-up">--</span>letter-spacing: 2px; /* adds 2 pixels of space between characters */
+            }
+            </code>
+            <p>In this example, the <strong>`letter-spacing`</strong> property is applied to the <strong>`p`</strong> (paragraph) element, and it adds 2 pixels of space between each character in the text.</p>
+            <p>You can use various units such as pixels <strong>(`px`)</strong>, em units <strong>(`em`)</strong>, or percentages <strong>(`%`)</strong> to specify the spacing. Negative values are also allowed, which would bring the characters closer together.</p>
+            <code>
+            .h1 {
+            <span class="line-up">--</span>letter-spacing: -1px; /* reduces the space between characters by 1 pixel */
+            }
+            </code>
+            <p>It's important to use <strong>`letter-spacing`</strong> judiciously, as excessive spacing can affect readability. Adjustments are often made subtly to improve the overall visual appeal of the text without sacrificing readability.</p>
+            <code>
+            span {
+            <span class="line-up">--</span>letter-spacing: 0.1em; /* a subtle increase in spacing using em units */
+            }
+            </code>
+            <p>The <strong>`letter-spacing`</strong> property is supported in modern browsers and provides a straightforward way to control the spacing between characters in text elements.</p>
+         </section>
+         <section class="main-section" id="text_transformation">
+            <header>Text Transformation</header>
+            <p>The <strong>`text-transform`</strong> property in CSS is used to control the capitalization or transformation of text. It allows you to change the appearance of text by converting it to uppercase, lowercase, or capitalizing the first letter of each word. This property is useful for achieving stylistic effects or adhering to specific design preferences.</p>
+            <p>Here are the common values for the <strong>`text-transform`</strong> property:</p>
+            <ol>
+               <li>
+                  <p><strong>`uppercase`</strong>: Transforms the text to uppercase.</p>
+               </li>
+               <code>
+               p {
+               <span class="line-up">--</span>text-transform: uppercase;
+               }
+               </code>
+               <li>
+                  <p><strong>`lowercase`</strong>: Transforms the text to lowercase.</p>
+               </li>
+               <code>
+               h1 {
+               <span class="line-up">--</span>text-transform: lowercase;
+               }
+               </code>
+               <li>
+                  <p><strong>`capitalize`</strong>: Capitalizes the first letter of each word.</p>
+               </li>
+               <code>
+               .title {
+               <span class="line-up">--</span>text-transform: capitalize;
+               }
+               </code>
+               <li>
+                  <p><strong>`none`</strong>: Default value, leaves the text as it is.</p>
+               </li>
+               <code>
+               .span {
+               <span class="line-up">--</span>text-transform: none;
+               }
+               </code>
+               </ol>
+               <p>It's important to note that the <strong>`text-transform`</strong> property only affects the visual rendering of the text and does not change the underlying content or affect how the text is stored or transmitted.</p>
+         </section>
+         <section class="main-section" id="object_fit">
+            <header>Object Fit</header>
+            <p>The <strong>`object-fit`</strong> property in CSS is used to control how replaced content, such as images or videos, should be resized and positioned within its containing box. Replaced content refers to elements with intrinsic dimensions, like images and videos.</p>
+            <p>Here are the common values for the <strong>`object-fit`</strong> property:</p>
+            <ol>
+               <li><p><strong>`fill`</strong>: The default value. The replaced content is stretched to fill the container, potentially altering its aspect ratio.</p></li>
+               <code>
+               img {
+               <span class="line-up">--</span>object-fit: fill;
+               }
+               </code>
+               <li><p><strong>`contain`</strong>: The replaced content is scaled to maintain its aspect ratio and fit within the container without cropping.</p></li>
+               <code>
+               img {
+               <span class="line-up">--</span>object-fit: contain;
+               }
+               </code>
+               <li><p><strong>`cover`</strong>: The replaced content is scaled to cover the entire container, potentially cropping parts of it.</p></li>
+               <code>
+               img {
+               <span class="line-up">--</span>object-fit: cover;
+               }
+               </code>
+               <li><p><strong>`none`</strong>: The replaced content is not resized or scaled, maintaining its original dimensions and potentially overflowing the container.</p></li>
+               <code>
+               img {
+               <span class="line-up">--</span>object-fit: none;
+               }
+               </code>
+               <li><p><strong>`scale-down`</strong>: The replaced content is scaled down to fit within the container, but it won't exceed its original size if it doesn't need to.</p></li>
+               <code>
+               img {
+               <span class="line-up">--</span>object-fit: scale-down;
+               }
+               </code>
+            </ol>
+         </section>
+         <footer>© 2024 Amaral</footer>
+      </main>
+   </body>
+</html>
